@@ -74,6 +74,11 @@ builder.Services.AddSingleton<Kernel>((_) =>
 
 var app = builder.Build();
 
+var config = new ConfigurationBuilder()
+    .AddUserSecrets<Program>()
+    .AddEnvironmentVariables()
+    .Build();
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
